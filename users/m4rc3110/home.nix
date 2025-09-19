@@ -14,6 +14,7 @@
     packages = with pkgs; [
       wireshark
       prusa-slicer
+      kdePackages.okular
     ];
   };
 

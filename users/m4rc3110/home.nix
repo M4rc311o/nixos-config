@@ -13,6 +13,7 @@
     };
     packages = with pkgs; [
       wireshark
+      prusa-slicer
     ];
   };
 

@@ -32,6 +32,16 @@
     bluetuith
   ];
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    config = {
+      sway = {
+        default = [ "wlr" ];
+      };
+    };
+  };
+
   services = {
     openssh.enable = true;
     pipewire = {

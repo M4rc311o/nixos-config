@@ -9,6 +9,7 @@ let
     alert = "#A54242";
     disabled = "#707880";
   };
+  flameshotPkg = pkgs.flameshot.override { enableWlrSupport = true; };
 in
 {
    wayland.windowManager.sway = {
@@ -77,6 +78,8 @@ in
         "${modifier}+Shift+0" = "move container to workspace number 10, workspace number 10";
 
 	"${modifier}+Shift+d" = "sticky toggle";
+	"Print" = "exec ${flameshotPkg}/bin/flameshot screen";
+	"Shift+Print" = "exec ${flameshotPkg}/bin/flameshot gui";
       };
       bars = [{
         command = "${pkgs.waybar}/bin/waybar";
@@ -105,6 +108,18 @@ in
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  };
+
+  services.flameshot = {
+    enable = true;
+    package = flameshotPkg;
+    settings = {
+      General = {
+	disabledTrayIcon = true;
+	showStartupLaunchMessage = false;
+	disabledGrimWarning = true;
+      };
+    };
   };
 
   services.swayidle = {

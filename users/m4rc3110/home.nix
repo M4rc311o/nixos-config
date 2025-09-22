@@ -16,6 +16,7 @@
       prusa-slicer
       signal-desktop
       kdePackages.okular
+      pavucontrol
     ];
   };
 

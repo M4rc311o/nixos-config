@@ -11,6 +11,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  services.tlp.enable = true;
+
   hardware.graphics.enable = true;
 
   hardware.bluetooth.enable = true;

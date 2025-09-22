@@ -1,6 +1,16 @@
+{ pkgs, ... }:
 {
+  swayMode = {
+    tooltip = false;
+  };
+  clock = {
+    format = "{:%H:%M}";
+    format-alt = "{:%a %d/%m/%Y %H:%M}";
+    tooltip-format = "{:%Y-%m-%d %H:%M:%S %Z}";
+  };
   mpris = {
     format = "{player_icon} {status_icon} {title} | {artist}";
+    title-len = 50; 
     status-icons = {
       playing = "󰐊";
       paused = "󰏤";
@@ -51,6 +61,9 @@
       hdmi = " ";
       default = [" " " " " "];
     };
+    # on-click = "${pkgs.pulseuadio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
+    on-click = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+    on-click-right = "${pkgs.pavucontrol}/bin/pavucontrol";
   };
   network = {
     interval = 5;
@@ -59,6 +72,11 @@
     format-linked = "󰌘 No IP";
     format-disconnected = "󱘖 Disconnected";
     format-alt = "{ifname} ({ipaddr})";
+    tooltip-format = ''
+       {ifname}
+       IP: {ipaddr}
+       Mask: {netmask} ({cidr})
+       GW: {gwaddr}'';
   };
   battery = {
     states = {
@@ -72,6 +90,7 @@
   backlight = {
     format = "{icon} {percent}%";
     format-icons = [ "󰃞" "󰃟" "󰃠" ];
+    tooltip = false;
   };
   bluetooth = {
     format = " {status}";

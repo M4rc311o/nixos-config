@@ -1,6 +1,6 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 let
-  modules = import ./modules.nix;
+  modules = import ./modules.nix { inherit pkgs; };
 in
 {
   programs.waybar = {
@@ -27,12 +27,14 @@ in
 	  "network"
 	];
 
+	"sway/mode" = modules.swayMode;
         "mpris" = modules.mpris;
 	"memory" = modules.memory;
         "cpu" = modules.cpu;
         "disk" = modules.disk;
         "pulseaudio" = modules.pulseaudio;
 	"network" = modules.network;
+	"clock" = modules.clock;
       };
       sideBar = {
         layer = "top";

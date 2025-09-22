@@ -77,7 +77,21 @@ in
         "${modifier}+Shift+9" = "move container to workspace number 9, workspace number 9";
         "${modifier}+Shift+0" = "move container to workspace number 10, workspace number 10";
 
+	"XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_SINK@ 5%+";
+	"XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_SINK@ 5%-";
+	"XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SINK@ toggle";
+	"XF86AudioMicMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SOURCE@ toggle";
+
+	"XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+	"XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
+	"XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+
+	
+	"XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
+	"XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+
 	"${modifier}+Shift+d" = "sticky toggle";
+
 	"Print" = "exec ${flameshotPkg}/bin/flameshot screen";
 	"Shift+Print" = "exec ${flameshotPkg}/bin/flameshot gui";
       };

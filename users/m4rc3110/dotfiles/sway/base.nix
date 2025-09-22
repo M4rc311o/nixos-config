@@ -91,6 +91,7 @@ in
 	"XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
 
 	"${modifier}+Shift+d" = "sticky toggle";
+	"${modifier}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
 
 	"Print" = "exec ${flameshotPkg}/bin/flameshot screen";
 	"Shift+Print" = "exec ${flameshotPkg}/bin/flameshot gui";

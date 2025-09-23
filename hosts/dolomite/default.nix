@@ -16,6 +16,7 @@
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   networking.hostName = "dolomite";
   networking.networkmanager.enable = true;
@@ -31,7 +32,6 @@
   environment.systemPackages = with pkgs; [
     vim
     git
-    bluetuith
   ];
 
   xdg.portal = {

@@ -39,6 +39,7 @@
           "browser.newtabpage.activity-stream.feeds.topsites" = false;
           "browser.newtabpage.activity-stream.showTopSites" = false;
           "browser.toolbars.bookmarks.visibility" = "never";
+          "browser.urlbar.trimURLs" = false;
 	};
       };
     };

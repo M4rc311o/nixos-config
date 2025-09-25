@@ -29,9 +29,12 @@
   security.pam.services.swaylock = {};
   programs.dconf.enable = true;
 
+  services.udisks2.enable = true;
+
   environment.systemPackages = with pkgs; [
     vim
     git
+    gparted
   ];
 
   xdg.portal = {

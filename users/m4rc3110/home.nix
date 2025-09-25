@@ -17,6 +17,7 @@
       signal-desktop
       kdePackages.okular
       pavucontrol
+      nmap
     ];
   };
 

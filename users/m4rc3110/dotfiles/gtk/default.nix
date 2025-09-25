@@ -1,4 +1,9 @@
 { pkgs, ... }:
+let
+  gruvboxThemePkg = pkgs.gruvbox-gtk-theme.override {
+    iconVariants = [ "Dark" ];
+  };
+in
 {
   gtk = {
     enable = true;
@@ -9,7 +14,11 @@
     gtk4.extraConfig."gtk-application-prefer-dark-theme" = true;
     theme = {
       name = "Gruvbox-Dark";
-      package = pkgs.gruvbox-gtk-theme;
+      package = gruvboxThemePkg;
+    };
+    iconTheme = {
+      name = "Gruvbox-Dark";
+      package = gruvboxThemePkg;
     };
   };
   dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";

@@ -22,6 +22,7 @@
   };
 
   imports = [
+    ./dotfiles/xdg
     ./dotfiles/git
     ./dotfiles/nvim
     ./dotfiles/sway

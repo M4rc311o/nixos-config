@@ -38,8 +38,6 @@
     "color-schemes/DarkPastels.colors".source = ./DarkPastels.colors;
   };
 
-  home.sessionVariables = lib.mkForce {
-    QT_QPA_PLATFORMTHEME = "qt6ct";
-    # QT_STYLE_OVERRIDE = "kvantum-dark";
-  };
+  home.sessionVariables.QT_QPA_PLATFORMTHEME = lib.mkForce "qt6ct";
+  # QT_STYLE_OVERRIDE = "kvantum-dark";
 }

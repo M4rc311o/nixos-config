@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   wayland.windowManager.sway = {
     extraOptions = [ "--unsupported-gpu" ];
@@ -29,6 +30,18 @@
         { workspace = "7"; output = "DP-1"; }
         { workspace = "8"; output = "DP-1"; }
         { workspace = "9"; output = "DP-1"; }
+      ];
+      assigns = {
+        "7" = [
+          { app_id = "^spotify$"; }
+          { app_id = "^vesktop$"; }
+        ];
+        "8" = [ { app_id = "^signal$"; } ];
+      };
+      startup = [
+        { command = "${pkgs.vesktop}/bin/vesktop"; }
+        { command = "spotify"; }
+        { command = "${pkgs.signal-desktop}/bin/signal-desktop"; }
       ];
     };
   };

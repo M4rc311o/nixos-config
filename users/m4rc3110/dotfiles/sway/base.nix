@@ -18,6 +18,7 @@ in
     wrapperFeatures.gtk = true;
     config = rec {
       modifier = "Mod4";
+      defaultWorkspace = "workspace number 1";
       terminal = "${pkgs.alacritty}/bin/alacritty";
       menu = "${pkgs.wofi}/bin/wofi --show drun";
       fonts = {

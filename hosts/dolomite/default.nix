@@ -12,8 +12,8 @@
   boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   hardware.graphics.enable = true;
-  hardware.nvidia.open = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # hardware.nvidia.open = true;
+  # services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;

@@ -35,8 +35,12 @@
         "7" = [
           { app_id = "^spotify$"; }
           { app_id = "^vesktop$"; }
+          { class = "^vesktop$"; }
         ];
-        "8" = [ { app_id = "^signal$"; } ];
+        "8" = [
+          { app_id = "^signal$"; }
+          { class = "^Signal$"; }
+        ];
       };
       startup = [
         { command = "${pkgs.vesktop}/bin/vesktop"; }
@@ -45,4 +49,9 @@
       ];
     };
   };
+
+  # home.sessionVariablesExtra = ''
+  #   unset NIXOS_OZONE_WL
+  #   unset ELECTRON_OZONE_PLATFORM_HINT
+  # '';
 }

@@ -36,6 +36,7 @@
     ./dotfiles/spicetify
     ./dotfiles/firefox
     ./dotfiles/vesktop
+    ./dotfiles/zathura
   ];
 
   services.playerctld.enable = true;

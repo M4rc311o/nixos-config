@@ -1,4 +1,14 @@
 { pkgs, ... }:
+let
+  tex = (
+    pkgs.texlive.combine {
+      inherit (pkgs.texlive)
+        scheme-medium
+        circuitikz
+        ;
+    }
+  );
+in
 {
   home = {
     username = "m4rc3110";
@@ -11,16 +21,20 @@
       package = pkgs.bibata-cursors;
       name = "Bibata-Original-Classic";
     };
-    packages = with pkgs; [
-      wireshark
-      prusa-slicer
-      signal-desktop
-      kdePackages.okular
-      pavucontrol
-      nmap
-      tldr
-      ghidra
-    ];
+    packages =
+      (with pkgs; [
+        wireshark
+        prusa-slicer
+        signal-desktop
+        kdePackages.okular
+        pavucontrol
+        nmap
+        tldr
+        ghidra
+        zip
+        unzip
+      ])
+      ++ [ tex ];
   };
 
   imports = [

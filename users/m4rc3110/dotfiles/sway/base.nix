@@ -97,6 +97,8 @@ in
 
 	"Print" = "exec ${flameshotPkg}/bin/flameshot screen";
 	"Shift+Print" = "exec ${flameshotPkg}/bin/flameshot gui";
+
+	"${modifier}+Shift+e" = "exec ${pkgs.wofi-emoji}/bin/wofi-emoji";
       };
       bars = [{
         command = "${pkgs.waybar}/bin/waybar";

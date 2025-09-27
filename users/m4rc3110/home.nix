@@ -19,6 +19,7 @@
       pavucontrol
       nmap
       tldr
+      ghidra
     ];
   };
 

@@ -131,6 +131,10 @@ in
     _JAVA_AWT_WM_NONREPARENTING = 1;
   };
 
+  home.packages = with pkgs; [
+    wl-clipboard
+  ];
+
   services.flameshot = {
     enable = true;
     package = flameshotPkg;

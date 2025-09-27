@@ -18,6 +18,7 @@
       kdePackages.okular
       pavucontrol
       nmap
+      tldr
     ];
   };
 

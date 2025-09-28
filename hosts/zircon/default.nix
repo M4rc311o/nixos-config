@@ -50,6 +50,7 @@
     config = {
       sway = {
         default = [ "wlr" "gtk" ];
+        "org.freedesktop.impl.portal.Inhibit" = [ "none" ];
       };
     };
     extraPortals = [

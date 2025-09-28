@@ -35,6 +35,7 @@ in
         unzip
         chromium
         inkscape
+        usbutils
       ])
       ++ [ tex ];
   };

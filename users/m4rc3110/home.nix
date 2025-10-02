@@ -33,6 +33,8 @@ in
         ghidra
         zip
         unzip
+        chromium
+        inkscape
       ])
       ++ [ tex ];
   };

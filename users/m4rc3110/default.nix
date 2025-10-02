@@ -14,6 +14,7 @@
           "wheel"
           "users"
           "networkmanager"
+          "docker"
         ];
       };
     };

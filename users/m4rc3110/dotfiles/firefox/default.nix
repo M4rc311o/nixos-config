@@ -103,6 +103,12 @@
           default_area = "menupanel";
           private_browsing = false;
         };
+        "@contain-facebook" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/facebook-container/latest.xpi";
+          installation_mode = "force_installed";
+          default_area = "menupanel";
+          private_browsing = false;
+        };
       };
     };
   };

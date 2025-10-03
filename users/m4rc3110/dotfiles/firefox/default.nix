@@ -40,6 +40,10 @@
           "browser.newtabpage.activity-stream.showTopSites" = false;
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.urlbar.trimURLs" = false;
+          "browser.translations.automaticallyPopup" = false;
+          "browser.tabs.inTitlebar" = 0;
+          "browser.download.autohideButton" = false;
+          "identity.fxaccounts.toolbar.enabled" = false;
 	};
       };
     };

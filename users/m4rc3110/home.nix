@@ -36,6 +36,7 @@ in
         chromium
         inkscape
         usbutils
+        obsidian # FUTURE: Check obsdian HM settings
       ])
       ++ [ tex ];
   };

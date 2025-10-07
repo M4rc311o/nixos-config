@@ -32,6 +32,7 @@
 
   virtualisation.docker = {
     enable = true;
+    enableOnBoot = false;
   };
 
   services.udisks2.enable = true;

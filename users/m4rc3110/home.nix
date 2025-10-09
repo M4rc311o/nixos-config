@@ -57,6 +57,7 @@ in
     ./dotfiles/firefox
     ./dotfiles/vesktop
     ./dotfiles/zathura
+    ./dotfiles/obs
   ];
 
   services.playerctld.enable = true;

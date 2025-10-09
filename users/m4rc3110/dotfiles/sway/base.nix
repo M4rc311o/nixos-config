@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
-let
+{
+  pkgs,
+  lib,
+  ...
+}: let
   colorScheme = {
     background = "#282A2E";
     backgroundAlt = "#373B41";
@@ -9,10 +12,9 @@ let
     alert = "#A54242";
     disabled = "#707880";
   };
-  flameshotPkg = pkgs.flameshot.override { enableWlrSupport = true; };
-in
-{
-   wayland.windowManager.sway = {
+  flameshotPkg = pkgs.flameshot.override {enableWlrSupport = true;};
+in {
+  wayland.windowManager.sway = {
     enable = true;
     xwayland = true;
     wrapperFeatures.gtk = true;
@@ -22,49 +24,49 @@ in
       terminal = "${pkgs.alacritty}/bin/alacritty";
       menu = "${pkgs.wofi}/bin/wofi --show drun";
       fonts = {
-	names = [ "FiraCode Nerd Font Mono" ];
-	style = "Bold";
-	size = 10.0;
+        names = ["FiraCode Nerd Font Mono"];
+        style = "Bold";
+        size = 10.0;
       };
       gaps.inner = 3;
       window = {
-      	border = 1;
-	titlebar = false;
+        border = 1;
+        titlebar = false;
       };
       colors = {
         focused = {
-	  border = colorScheme.backgroundAlt;
-	  background = colorScheme.backgroundAlt;
-	  text = colorScheme.primary;
-	  indicator = colorScheme.backgroundAlt;
-	  childBorder = colorScheme.primary;
-	};
+          border = colorScheme.backgroundAlt;
+          background = colorScheme.backgroundAlt;
+          text = colorScheme.primary;
+          indicator = colorScheme.backgroundAlt;
+          childBorder = colorScheme.primary;
+        };
         unfocused = {
-	  border = colorScheme.background;
-	  background = colorScheme.background;
-	  text = colorScheme.disabled;
-	  indicator = colorScheme.background;
-	  childBorder = colorScheme.background;
-	};
+          border = colorScheme.background;
+          background = colorScheme.background;
+          text = colorScheme.disabled;
+          indicator = colorScheme.background;
+          childBorder = colorScheme.background;
+        };
         focusedInactive = {
-	  border = colorScheme.background;
-	  background = colorScheme.background;
-	  text = colorScheme.secondary;
-	  indicator = colorScheme.background;
-	  childBorder = colorScheme.background;
-	};
+          border = colorScheme.background;
+          background = colorScheme.background;
+          text = colorScheme.secondary;
+          indicator = colorScheme.background;
+          childBorder = colorScheme.background;
+        };
         urgent = {
-	  border = colorScheme.background;
-	  background = colorScheme.background;
-	  text = colorScheme.alert;
-	  indicator = colorScheme.background;
-	  childBorder = colorScheme.background;
-	};
+          border = colorScheme.background;
+          background = colorScheme.background;
+          text = colorScheme.alert;
+          indicator = colorScheme.background;
+          childBorder = colorScheme.background;
+        };
       };
       floating.modifier = modifier;
       focus = {
         wrapping = "workspace";
-	followMouse = "yes";
+        followMouse = "yes";
       };
       keybindings = lib.mkOptionDefault {
         "${modifier}+Shift+1" = "move container to workspace number 1, workspace number 1";
@@ -78,44 +80,45 @@ in
         "${modifier}+Shift+9" = "move container to workspace number 9, workspace number 9";
         "${modifier}+Shift+0" = "move container to workspace number 10, workspace number 10";
 
-	"XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_SINK@ 5%+";
-	"XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_SINK@ 5%-";
-	"XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SINK@ toggle";
-	"XF86AudioMicMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SOURCE@ toggle";
+        "XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_SINK@ 5%+";
+        "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_SINK@ 5%-";
+        "XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SINK@ toggle";
+        "XF86AudioMicMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_SOURCE@ toggle";
 
-	"XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-	"XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
-	"XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+        "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
+        "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
 
-	
-	"XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
-	"XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set +10%";
+        "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
 
-	"${modifier}+Shift+d" = "sticky toggle";
-	#"${modifier}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
-	"${modifier}+Shift+Return" = "exec ${pkgs.alacritty}/bin/alacritty --command ${pkgs.tmux}/bin/tmux";
+        "${modifier}+Shift+d" = "sticky toggle";
+        #"${modifier}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
+        "${modifier}+Shift+Return" = "exec ${pkgs.alacritty}/bin/alacritty --command ${pkgs.tmux}/bin/tmux";
 
-	"Print" = "exec ${flameshotPkg}/bin/flameshot screen";
-	"Shift+Print" = "exec ${flameshotPkg}/bin/flameshot gui";
+        "Print" = "exec ${flameshotPkg}/bin/flameshot screen";
+        "Shift+Print" = "exec ${flameshotPkg}/bin/flameshot gui";
 
-	"${modifier}+Shift+e" = "exec ${pkgs.wofi-emoji}/bin/wofi-emoji";
+        "${modifier}+Shift+e" = "exec ${pkgs.wofi-emoji}/bin/wofi-emoji";
       };
-      bars = [{
-        command = "${pkgs.waybar}/bin/waybar";
-      }];
+      bars = [
+        {
+          command = "${pkgs.waybar}/bin/waybar";
+        }
+      ];
       output = {
         "*" = {
-	  bg = "${./background.png} fill";
-	};
+          bg = "${./background.png} fill";
+        };
       };
       input = {
         "type:keyboard" = {
-	  xkb_layout = "us,cz";
-	  xkb_variant = ",ucw";
-	  xkb_options = "grp:caps_switch";
-	  repeat_delay = "350";
-	  repeat_rate = "40";
-	};
+          xkb_layout = "us,cz";
+          xkb_variant = ",ucw";
+          xkb_options = "grp:caps_switch";
+          repeat_delay = "350";
+          repeat_rate = "40";
+        };
         "type:touchpad" = {
           natural_scroll = "enabled";
           tap = "enabled";
@@ -140,9 +143,9 @@ in
     package = flameshotPkg;
     settings = {
       General = {
-	disabledTrayIcon = true;
-	showStartupLaunchMessage = false;
-	disabledGrimWarning = true;
+        disabledTrayIcon = true;
+        showStartupLaunchMessage = false;
+        disabledGrimWarning = true;
       };
     };
   };

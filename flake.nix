@@ -20,69 +20,77 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ self, nixpkgs, nixpkgs-unstable, disko, home-manager, spicetify-nix, nvim-nixcats, ... }: {
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    disko,
+    home-manager,
+    spicetify-nix,
+    nvim-nixcats,
+    ...
+  }: {
     nixosConfigurations.dolomite = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = [
-	disko.nixosModules.disko
-	./hosts/dolomite
-	./users/m4rc3110
+        disko.nixosModules.disko
+        ./hosts/dolomite
+        ./users/m4rc3110
         home-manager.nixosModules.home-manager
         {
-	  home-manager.useGlobalPkgs = true;
-	  home-manager.useUserPackages = true;
-	  home-manager.backupFileExtension = "bak";
-	  home-manager.users.m4rc3110.imports = [
-	    spicetify-nix.homeManagerModules.default
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "bak";
+          home-manager.users.m4rc3110.imports = [
+            spicetify-nix.homeManagerModules.default
             nvim-nixcats.homeModules.default
-	    ./users/m4rc3110/home.nix
-	  ];
-	  home-manager.extraSpecialArgs = {
-	    inherit inputs;
+            ./users/m4rc3110/home.nix
+          ];
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
             unstablePkgs = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
-	    };
+            };
             hostName = "dolomite";
           };
         }
       ];
     };
     nixosConfigurations.zircon = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = [
-	disko.nixosModules.disko
-	./hosts/zircon
-	./users/m4rc3110
+        disko.nixosModules.disko
+        ./hosts/zircon
+        ./users/m4rc3110
         home-manager.nixosModules.home-manager
         {
-	  home-manager.useGlobalPkgs = true;
-	  home-manager.useUserPackages = true;
-	  home-manager.backupFileExtension = "bak";
-	  home-manager.users.m4rc3110.imports = [
-	    spicetify-nix.homeManagerModules.default
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "bak";
+          home-manager.users.m4rc3110.imports = [
+            spicetify-nix.homeManagerModules.default
             nvim-nixcats.homeModules.default
-	    ./users/m4rc3110/home.nix
-	  ];
-	  home-manager.extraSpecialArgs = {
-	    inherit inputs;
+            ./users/m4rc3110/home.nix
+          ];
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
             unstablePkgs = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
-	    };
+            };
             hostName = "zircon";
           };
         }
       ];
     };
     nixosConfigurations.spinel = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = {inherit inputs;};
       modules = [
-	disko.nixosModules.disko
-	./hosts/spinel
-	./users/m4rc3110
+        disko.nixosModules.disko
+        ./hosts/spinel
+        ./users/m4rc3110
       ];
     };
   };
 }
-

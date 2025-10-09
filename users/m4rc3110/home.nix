@@ -1,15 +1,14 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   tex = (
     pkgs.texlive.combine {
-      inherit (pkgs.texlive)
+      inherit
+        (pkgs.texlive)
         scheme-medium
         circuitikz
         ;
     }
   );
-in
-{
+in {
   home = {
     username = "m4rc3110";
     homeDirectory = "/home/m4rc3110";
@@ -38,7 +37,7 @@ in
         usbutils
         obsidian # FUTURE: Check obsdian HM settings
       ])
-      ++ [ tex ];
+      ++ [tex];
   };
 
   imports = [
@@ -66,11 +65,11 @@ in
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     Unit = {
       Description = "polkit-gnome-authentication-agent-1";
-      Wants = [ "graphical-session.target" ];
-      After = [ "graphical-session.target" ];
+      Wants = ["graphical-session.target"];
+      After = ["graphical-session.target"];
     };
     Install = {
-      WantedBy = [ "graphical-session.target" ];
+      WantedBy = ["graphical-session.target"];
     };
     Service = {
       Type = "simple";

@@ -1,7 +1,6 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   wayland.windowManager.sway = {
-    extraOptions = [ "--unsupported-gpu" ];
+    extraOptions = ["--unsupported-gpu"];
     config = {
       output = {
         "HDMI-A-1" = {
@@ -21,31 +20,58 @@
         };
       };
       workspaceOutputAssign = [
-        { workspace = "1"; output = "HDMI-A-1"; }
-        { workspace = "2"; output = "HDMI-A-1"; }
-        { workspace = "3"; output = "HDMI-A-1"; }
-        { workspace = "4"; output = "DP-3"; }
-        { workspace = "5"; output = "DP-3"; }
-        { workspace = "6"; output = "DP-3"; }
-        { workspace = "7"; output = "DP-1"; }
-        { workspace = "8"; output = "DP-1"; }
-        { workspace = "9"; output = "DP-1"; }
+        {
+          workspace = "1";
+          output = "HDMI-A-1";
+        }
+        {
+          workspace = "2";
+          output = "HDMI-A-1";
+        }
+        {
+          workspace = "3";
+          output = "HDMI-A-1";
+        }
+        {
+          workspace = "4";
+          output = "DP-3";
+        }
+        {
+          workspace = "5";
+          output = "DP-3";
+        }
+        {
+          workspace = "6";
+          output = "DP-3";
+        }
+        {
+          workspace = "7";
+          output = "DP-1";
+        }
+        {
+          workspace = "8";
+          output = "DP-1";
+        }
+        {
+          workspace = "9";
+          output = "DP-1";
+        }
       ];
       assigns = {
         "7" = [
-          { app_id = "^spotify$"; }
-          { app_id = "^vesktop$"; }
-          { class = "^vesktop$"; }
+          {app_id = "^spotify$";}
+          {app_id = "^vesktop$";}
+          {class = "^vesktop$";}
         ];
         "8" = [
-          { app_id = "^signal$"; }
-          { class = "^Signal$"; }
+          {app_id = "^signal$";}
+          {class = "^Signal$";}
         ];
       };
       startup = [
-        { command = "${pkgs.vesktop}/bin/vesktop"; }
-        { command = "spotify"; }
-        { command = "${pkgs.signal-desktop}/bin/signal-desktop"; }
+        {command = "${pkgs.vesktop}/bin/vesktop";}
+        {command = "spotify";}
+        {command = "${pkgs.signal-desktop}/bin/signal-desktop";}
       ];
     };
   };

@@ -1,39 +1,42 @@
-{ pkgs, unstablePkgs, ... }:
 {
+  pkgs,
+  unstablePkgs,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     profiles = {
       "m4rc3110" = {
         id = 0;
-	isDefault = true;
+        isDefault = true;
         containers = {
-	  "school" = {
-	    id = 1;
-	    color = "red";
-	    icon = "circle";
-	  };
-	};
-	containersForce = true;
+          "school" = {
+            id = 1;
+            color = "red";
+            icon = "circle";
+          };
+        };
+        containersForce = true;
 
-	preConfig = builtins.readFile "${unstablePkgs.arkenfox-userjs}/user.js";
-	settings = {
-	  "browser.startup.page" = 3; # resume previous session
-	  "browser.startup.homepage" = "about:home";
-	  "browser.newtabpage.enabled" = true;
-	  "browser.search.suggest.enabled" = true;
-	  "browser.urlbar.suggest.searches" = true;
-	  "browser.search.separatePrivateDefault" = false;
-	  "browser.search.separatePrivateDefault.ui.enabled" = false;
-	  "network.auth.subresource-http-auth-allow" = 2;
-	  "browser.cache.disk.enable" = true;
-	  "browser.sessionstore.privacy_level" = 0; # keep session data
-	  "toolkit.winRegisterApplicationRestart" = true;
-	  "dom.security.https_only_mode" = false;
-	  "privacy.sanitize.sanitizeOnShutdown" = false;
-	  "privacy.resistFingerprinting.block_mozAddonManager" = false;
-	  "signon.rememberSignons" = false;
-	  "extensions.formautofill.addresses.enabled" = false;
-	  "extensions.formautofill.creditCards.enabled" = false;
+        preConfig = builtins.readFile "${unstablePkgs.arkenfox-userjs}/user.js";
+        settings = {
+          "browser.startup.page" = 3; # resume previous session
+          "browser.startup.homepage" = "about:home";
+          "browser.newtabpage.enabled" = true;
+          "browser.search.suggest.enabled" = true;
+          "browser.urlbar.suggest.searches" = true;
+          "browser.search.separatePrivateDefault" = false;
+          "browser.search.separatePrivateDefault.ui.enabled" = false;
+          "network.auth.subresource-http-auth-allow" = 2;
+          "browser.cache.disk.enable" = true;
+          "browser.sessionstore.privacy_level" = 0; # keep session data
+          "toolkit.winRegisterApplicationRestart" = true;
+          "dom.security.https_only_mode" = false;
+          "privacy.sanitize.sanitizeOnShutdown" = false;
+          "privacy.resistFingerprinting.block_mozAddonManager" = false;
+          "signon.rememberSignons" = false;
+          "extensions.formautofill.addresses.enabled" = false;
+          "extensions.formautofill.creditCards.enabled" = false;
           "security.OCSP.require" = false;
 
           "browser.newtabpage.activity-stream.feeds.topsites" = false;
@@ -44,7 +47,7 @@
           "browser.tabs.inTitlebar" = 0;
           "browser.download.autohideButton" = false;
           "identity.fxaccounts.toolbar.enabled" = false;
-	};
+        };
       };
     };
     policies = {

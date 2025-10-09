@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   home.packages = with pkgs; [
     # libsForQt5.qt5ct
     # kdePackages.qt6ct
@@ -17,7 +20,7 @@
   };
 
   xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini { }).generate "kvantum.kvconfig" {
+    "Kvantum/kvantum.kvconfig".source = (pkgs.formats.ini {}).generate "kvantum.kvconfig" {
       General = {
         theme = "Gruvbox-Dark-Brown";
       };

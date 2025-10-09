@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       main = {
-	device = "/dev/disk/by-id/ata-Apacer_AS350_512GB_2023121309004045";
+        device = "/dev/disk/by-id/ata-Apacer_AS350_512GB_2023121309004045";
         type = "disk";
         content = {
           type = "gpt";
@@ -14,7 +14,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                mountOptions = ["umask=0077"];
               };
             };
             root = {

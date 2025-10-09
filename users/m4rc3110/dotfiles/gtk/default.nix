@@ -1,10 +1,8 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   gruvboxThemePkg = pkgs.gruvbox-gtk-theme.override {
-    iconVariants = [ "Dark" ];
+    iconVariants = ["Dark"];
   };
-in
-{
+in {
   gtk = {
     enable = true;
     # FUTURE: This atribute is not yet in current stable HM

@@ -1,8 +1,10 @@
-{ pkgs, lib, ... }:
-let
-  modules = import ./modules.nix { inherit pkgs; };
-in
 {
+  pkgs,
+  lib,
+  ...
+}: let
+  modules = import ./modules.nix {inherit pkgs;};
+in {
   programs.waybar = {
     settings = {
       mainBar = {

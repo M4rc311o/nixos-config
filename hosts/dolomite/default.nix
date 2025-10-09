@@ -1,10 +1,13 @@
-{ config, lib, pkgs, ... }:
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./disko.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+    ./disko.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -54,8 +57,8 @@
     wlr.enable = true;
     config = {
       sway = {
-        default = [ "wlr" "gtk" ];
-        "org.freedesktop.impl.portal.Inhibit" = [ "none" ];
+        default = ["wlr" "gtk"];
+        "org.freedesktop.impl.portal.Inhibit" = ["none"];
       };
     };
     extraPortals = [
@@ -81,8 +84,8 @@
   # FUTURE: Once *vivid* is available in *home-manager* move to *zsh* configuration
   # https://github.com/nix-community/home-manager/issues/7589
   programs.vivid = {
-      enable = true;
-      theme = "gruvbox-dark-hard";
+    enable = true;
+    theme = "gruvbox-dark-hard";
   };
 
   fonts = {
@@ -95,16 +98,15 @@
     fontconfig = {
       enable = true;
       defaultFonts = {
-        serif = [ "Noto Serif" ];
-        sansSerif = [ "Noto Sans" ];
-        monospace = [ "FiraCode Nerd Font Mono" ];
-        emoji = [ "Noto Color Emoji" ];
+        serif = ["Noto Serif"];
+        sansSerif = ["Noto Sans"];
+        monospace = ["FiraCode Nerd Font Mono"];
+        emoji = ["Noto Color Emoji"];
       };
     };
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
@@ -158,6 +160,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
-

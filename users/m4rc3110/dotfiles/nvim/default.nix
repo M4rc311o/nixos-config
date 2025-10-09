@@ -1,10 +1,13 @@
-{ inputs, hostName, ... }:
 {
+  inputs,
+  hostName,
+  ...
+}: {
   nvim = {
     enable = true;
-    packageNames = [ "nvim" ];
+    packageNames = ["nvim"];
     packageDefinitions.replace = {
-      nvim = { ... }: {
+      nvim = {...}: {
         extra = {
           nixdExtras = {
             nixos_options = ''(builtins.getFlake "path:${builtins.toString inputs.self.outPath}").nixosConfigurations.${hostName}.options'';

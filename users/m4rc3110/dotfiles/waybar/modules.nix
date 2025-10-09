@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   swayMode = {
     tooltip = false;
   };
@@ -10,7 +9,7 @@
   };
   mpris = {
     format = "{player_icon} {status_icon} {title} | {artist}";
-    title-len = 50; 
+    title-len = 50;
     status-icons = {
       playing = "󰐊";
       paused = "󰏤";
@@ -73,10 +72,10 @@
     format-disconnected = "󱘖 Disconnected";
     format-alt = "{ifname} ({ipaddr})";
     tooltip-format = ''
-       {ifname}
-       IP: {ipaddr}
-       Mask: {netmask} ({cidr})
-       GW: {gwaddr}'';
+      {ifname}
+      IP: {ipaddr}
+      Mask: {netmask} ({cidr})
+      GW: {gwaddr}'';
   };
   battery = {
     states = {
@@ -84,12 +83,12 @@
       critical = 5;
     };
     format = "{icon} {capacity}%";
-    format-icons = [ "󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
+    format-icons = ["󰂎" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
     format-charging = "󰢟 {capacity}%";
   };
   backlight = {
     format = "{icon} {percent}%";
-    format-icons = [ "󰃞" "󰃟" "󰃠" ];
+    format-icons = ["󰃞" "󰃟" "󰃠"];
     tooltip = false;
   };
   bluetooth = {

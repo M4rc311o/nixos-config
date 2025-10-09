@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       main = {
-	device = "/dev/disk/by-id/nvme-Apacer_AS2280P4U_256GB_2025022709000218";
+        device = "/dev/disk/by-id/nvme-Apacer_AS2280P4U_256GB_2025022709000218";
         type = "disk";
         content = {
           type = "gpt";
@@ -14,7 +14,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                mountOptions = ["umask=0077"];
               };
             };
             root = {

@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
 {
+  pkgs,
+  lib,
+  ...
+}: {
   programs.zsh = {
     enable = true;
     # defaultKeymap = "viins";
@@ -39,27 +42,27 @@
       }
     ];
     shellAliases = {
-      ls    = "ls --color=auto";
-      ll    = "ls -hlA";
-      la    = "ls -hl";
+      ls = "ls --color=auto";
+      ll = "ls -hlA";
+      la = "ls -hl";
 
-      gits  = "git status";
+      gits = "git status";
 
-      diff  = "diff --color=auto";
-      ip    = "ip -color=auto";
+      diff = "diff --color=auto";
+      ip = "ip -color=auto";
       watch = "watch --color";
-      grep  = "grep --color=auto";
+      grep = "grep --color=auto";
     };
     initContent = lib.mkOrder 1500 ''
-      init() {
-        autoload -U history-search-end
-	zle -N history-beginning-search-backward-end history-search-end
-	zle -N history-beginning-search-forward-end history-search-end
-	bindkey "^[[A" history-beginning-search-backward-end
-	bindkey "^[[B" history-beginning-search-forward-end
-      }
+           init() {
+             autoload -U history-search-end
+      zle -N history-beginning-search-backward-end history-search-end
+      zle -N history-beginning-search-forward-end history-search-end
+      bindkey "^[[A" history-beginning-search-backward-end
+      bindkey "^[[B" history-beginning-search-forward-end
+           }
 
-      function zvm_after_init() { init }
+           function zvm_after_init() { init }
     '';
   };
 }

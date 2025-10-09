@@ -75,6 +75,14 @@
         }
       ];
     };
+    nixosConfigurations.spinel = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+	disko.nixosModules.disko
+	./hosts/spinel
+	./users/m4rc3110
+      ];
+    };
   };
 }
 

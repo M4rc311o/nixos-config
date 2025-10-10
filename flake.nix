@@ -90,6 +90,25 @@
         disko.nixosModules.disko
         ./hosts/spinel
         ./users/m4rc3110
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.backupFileExtension = "bak";
+          home-manager.users.m4rc3110.imports = [
+            spicetify-nix.homeManagerModules.default
+            nvim-nixcats.homeModules.default
+            ./users/m4rc3110/home.nix
+          ];
+          home-manager.extraSpecialArgs = {
+            inherit inputs;
+            unstablePkgs = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+            hostName = "spinel";
+          };
+        }
       ];
     };
   };

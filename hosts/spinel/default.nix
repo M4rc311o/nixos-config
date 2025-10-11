@@ -7,8 +7,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.tmp.cleanOnBoot = true;
+
+  boot.supportedFilesystems = ["zfs"];
+  boot.zfs.forceImportRoot = false;
+  boot.zfs.extraPools = ["fastpool" "slowpool"];
+  networking.hostId = "4a2c3ab0";
 
   networking.hostName = "spinel";
   networking.networkmanager.enable = true;

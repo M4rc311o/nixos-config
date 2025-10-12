@@ -18,6 +18,8 @@
   networking.hostName = "spinel";
   networking.networkmanager.enable = true;
 
+  networking.interfaces.enp5s0.wakeOnLan.enable = true;
+
   time.timeZone = "Europe/Prague";
 
   nixpkgs.config.allowUnfree = true;

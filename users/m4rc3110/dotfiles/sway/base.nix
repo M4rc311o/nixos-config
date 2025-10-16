@@ -124,6 +124,12 @@ in {
           tap = "enabled";
         };
       };
+      window.commands = [
+        {
+          criteria = {app_id = "flameshot";};
+          command = "floating enable, border pixel 0, fullscreen disable, move absolute position 0 px 0 px";
+        }
+      ];
     };
   };
 

@@ -69,9 +69,9 @@
         ];
       };
       startup = [
-        {command = "${pkgs.vesktop}/bin/vesktop";}
+        {command = "${pkgs.vesktop}/bin/vesktop --disable-gpu-compositing";}
         {command = "spotify";}
-        {command = "${pkgs.signal-desktop}/bin/signal-desktop";}
+        {command = "${pkgs.signal-desktop}/bin/signal-desktop --disable-gpu-compositing";}
       ];
     };
   };

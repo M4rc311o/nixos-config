@@ -29,6 +29,7 @@ in {
         chromium
         inkscape
         obsidian # FUTURE: Check obsdian HM settings
+        darktable
       ])
       ++ [tex];
   };

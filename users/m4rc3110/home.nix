@@ -16,6 +16,7 @@ in {
       zip
       unzip
       usbutils
+      file
     ];
   };
 

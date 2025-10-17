@@ -6,6 +6,7 @@
     ./services/pipewire.nix
     ./services/printing.nix
     ./services/udisks2.nix
+    ./services/gvfs.nix
 
     ./misc/fonts.nix
     ./misc/security-pam-swaylock.nix

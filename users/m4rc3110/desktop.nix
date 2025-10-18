@@ -1,4 +1,8 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  myLib,
+  ...
+}: let
   tex = (
     pkgs.texlive.combine {
       inherit
@@ -8,6 +12,9 @@
         ;
     }
   );
+
+  obsdian = myLib.wrapElectron {pkg = pkgs.obsidian;};
+  signal-desktop = myLib.wrapElectron {pkg = pkgs.signal-desktop;};
 in {
   home = {
     pointerCursor = {
@@ -21,17 +28,21 @@ in {
       (with pkgs; [
         wireshark
         prusa-slicer
-        signal-desktop
+        # signal-desktop
         kdePackages.okular
         pavucontrol
         nmap
         ghidra
         chromium
         inkscape
-        obsidian # FUTURE: Check obsdian HM settings
+        # obsidian # FUTURE: Check obsdian HM settings
         darktable
       ])
-      ++ [tex];
+      ++ [tex]
+      ++ [
+        obsdian
+        signal-desktop
+      ];
   };
 
   imports = [

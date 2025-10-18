@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   wayland.windowManager.sway = {
     extraOptions = ["--unsupported-gpu"];
     config = {
@@ -69,9 +69,9 @@
         ];
       };
       startup = [
-        {command = "${pkgs.vesktop}/bin/vesktop --disable-gpu-compositing";}
+        {command = "vesktop";}
         {command = "spotify";}
-        {command = "${pkgs.signal-desktop}/bin/signal-desktop --disable-gpu-compositing";}
+        {command = "signal-desktop";}
       ];
     };
   };

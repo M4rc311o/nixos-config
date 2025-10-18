@@ -135,7 +135,6 @@ in {
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
-    ELECTRON_OZONE_PLATFORM_HINT = "wayland";
 
     _JAVA_AWT_WM_NONREPARENTING = 1;
   };

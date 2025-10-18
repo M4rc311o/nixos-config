@@ -29,9 +29,15 @@
     spicetify-nix,
     nvim-nixcats,
     ...
-  }: {
+  }: let
+    inherit (nixpkgs) lib;
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+    };
+    myLib = import ./lib {inherit lib pkgs;};
+  in {
     nixosConfigurations.dolomite = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs myLib;};
       modules = [
         disko.nixosModules.disko
         ./hosts/dolomite
@@ -47,7 +53,7 @@
             ./users/m4rc3110/home.nix
           ];
           home-manager.extraSpecialArgs = {
-            inherit inputs;
+            inherit inputs myLib;
             unstablePkgs = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
@@ -58,7 +64,7 @@
       ];
     };
     nixosConfigurations.zircon = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs myLib;};
       modules = [
         disko.nixosModules.disko
         ./hosts/zircon
@@ -74,7 +80,7 @@
             ./users/m4rc3110/home.nix
           ];
           home-manager.extraSpecialArgs = {
-            inherit inputs;
+            inherit inputs myLib;
             unstablePkgs = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
@@ -85,7 +91,7 @@
       ];
     };
     nixosConfigurations.spinel = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs myLib;};
       modules = [
         disko.nixosModules.disko
         ./hosts/spinel
@@ -101,7 +107,7 @@
             ./users/m4rc3110/home.nix
           ];
           home-manager.extraSpecialArgs = {
-            inherit inputs;
+            inherit inputs myLib;
             unstablePkgs = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
